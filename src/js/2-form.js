@@ -3,7 +3,7 @@ const emailInput = feedbackForm.querySelector('[name="email"]');
 const messageTextarea = feedbackForm.querySelector('[name="message"]');
 
 document.addEventListener('DOMContentLoaded', () => {
-  const savedState = localStorage.getItem('feedback-form-state');
+const savedState = localStorage.getItem('feedback-form-state');
 
   if (savedState) {
     const parsedState = JSON.parse(savedState);
@@ -23,15 +23,14 @@ feedbackForm.addEventListener('input', (event) => {
 });
 
 feedbackForm.addEventListener('submit', (event) => {
-  event.preventDefault();
-
+event.preventDefault();
   localStorage.removeItem('feedback-form-state');
   emailInput.value = '';
   messageTextarea.value = '';
 
-  const formData = {
-    email: formState.email,
-    message: formState.message,
-  };
-  console.log(formData);
+const formData = {
+  email: emailInput.value,
+  message: messageTextarea.value,
+};
+console.log(formData);
 });
