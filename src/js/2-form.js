@@ -24,13 +24,14 @@ feedbackForm.addEventListener('input', (event) => {
 
 feedbackForm.addEventListener('submit', (event) => {
 event.preventDefault();
+
+const formData = {
+  email: emailInput.value.trim(),
+  message: messageTextarea.value.trim(),
+};
+console.log(formData);
+
   localStorage.removeItem('feedback-form-state');
   emailInput.value = '';
   messageTextarea.value = '';
-
-const formData = {
-  email: emailInput.value,
-  message: messageTextarea.value,
-};
-console.log(formData);
 });
